@@ -1,18 +1,27 @@
 {
   "name": "trends",
-  "version": "1.0.0",
-  "description": "Track trends over time",
-  "main": "src/main/ui/index.js",
+  "version": "0.0.1",
+  "description": "Tracking trends in daily life",
+  "main": "index.js",
   "dependencies": {
     "mysql": "^2.15.0"
   },
-  "devDependencies": {
-    "mysql": "^2.15.0"
-  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node ./src/main/db/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Conmy/Trends.git"
+  },
+  "keywords": [
+    "trends",
+    "tracking"
+  ],
   "author": "David Conmy",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Conmy/Trends/issues"
+  },
+  "homepage": "https://github.com/Conmy/Trends#readme"
 }
