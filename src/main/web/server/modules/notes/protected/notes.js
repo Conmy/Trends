@@ -4,7 +4,7 @@ module.exports = {
 	getNotes: function(req, res) {
 		notes.getNotes(
 			function(results) {
-				return res.send(results);
+				return res.status(200).send(results);
 			},
 			function(error) {
 				return res.send(error);

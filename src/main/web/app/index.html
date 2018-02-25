@@ -1,0 +1,49 @@
+"<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+ 
+    <script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+        id="sap-ui-bootstrap"
+        data-sap-ui-libs="sap.m"
+        data-sap-ui-theme="sap_bluecrystal"
+        type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      jQuery(function() {
+
+        var oModel = new sap.ui.model.json.JSONModel("http://localhost:8080/notes");
+
+        var oTable = new sap.m.Table({
+          columns: [
+            new sap.m.Column({ header: new sap.m.Label({text: "Date"})}),
+            new sap.m.Column({ header: new sap.m.Label({text: "Note"})})
+          ],
+          items: {
+            path: "/",
+            template: new sap.m.ColumnListItem({
+              cells: [
+                new sap.m.Text({text: {
+                  path: "NOTE_DATE",
+                  formatter: function(oVal) {
+                    var date = new Date(oVal);
+                    return date.getFullYear() + "-" + ("0"+date.getMonth()).slice(-2) + "-" + ("0"+date.getDate()).slice(-2);
+                  }
+                }}),
+                new sap.m.Text({text: "{NOTE}"})
+              ]
+            })
+          }
+        });
+
+        oTable.setModel(oModel);
+        oTable.placeAt('content');
+
+      });
+    </script>
+ 
+  </head>
+  <body class="sapUiBody">
+    <div id="content"></div>
+  </body>
+</html>

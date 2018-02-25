@@ -1,5 +1,5 @@
 module.exports = function(app) {
-	var notes = require("../modules/notes/protected/notes.js");
+	var notes = require("./modules/notes/protected/notes.js");
 	app.get("/notes", notes.getNotes);
 	app.get("/notes/:id", notes.getNoteById);
 	app.post("/notes", notes.createNote);
