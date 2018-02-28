@@ -5,7 +5,7 @@ module.exports = {
 	createNote : function(date, note, fnSuccess, fnError) {
 
 		var con = server.getPool();
-		var sql = "INSERT INTO NOTES (NOTE_DATE, NOTE) VALUES (" + con.escape(date) +", " +
+		var sql = "INSERT INTO NOTES (NOTE_DATE, NOTE) VALUES (" + con.escape(date) + ", " +
 			con.escape(note) + ")";
 			
 		server.execute(
@@ -18,7 +18,7 @@ module.exports = {
 	getNotes : function (fnSuccess, fnError) {
 		var con = server.getConnection();
 		server.execute(
-			con, 
+			con,
 			"SELECT NOTE_ID, NOTE_DATE, NOTE FROM NOTES",
 			fnSuccess,
 			fnError);

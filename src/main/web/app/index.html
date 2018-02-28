@@ -1,4 +1,4 @@
-"<html>
+<html>
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
@@ -26,8 +26,12 @@
                 new sap.m.Text({text: {
                   path: "NOTE_DATE",
                   formatter: function(oVal) {
+
                     var date = new Date(oVal);
-                    return date.getFullYear() + "-" + ("0"+date.getMonth()).slice(-2) + "-" + ("0"+date.getDate()).slice(-2);
+                    
+                    return date.getFullYear() + "-" 
+                      + ("0" + date.getMonth()).slice(-2) + "-"
+                      + ("0" + date.getDate()).slice(-2);
                   }
                 }}),
                 new sap.m.Text({text: "{NOTE}"})
