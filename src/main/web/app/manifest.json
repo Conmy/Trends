@@ -1,0 +1,39 @@
+{
+    "sap.app": {
+        "id": "me.conmy.trends.app",
+        "type": "application",
+        "title": "Trends",
+        "description": "Trends App",
+        "applicationVersion": {
+            "version": "1.52.6"
+        },
+        "ach": "CA-UI5-FST"
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "me.conmy.trends.app.view.notes",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.52",
+            "libs": {
+                "sap.m": {}
+            }
+        },
+        "models": {
+            "notes": {
+                "type": "sap.ui.model.json.JSONModel"
+            }
+        }
+    }
+}

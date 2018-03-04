@@ -1,47 +1,40 @@
-"<html>
+<html>
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
  
-    <script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+    <script 
         id="sap-ui-bootstrap"
+        type="text/javascript"
+        src="https://sapui5.hana.ondemand.com/1.52.6/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_belize"
         data-sap-ui-libs="sap.m"
-        data-sap-ui-theme="sap_bluecrystal"
-        type="text/javascript">
+        data-sap-ui-bindingSyntax="complex"
+        data-sap-ui-compatVerstion="edge"
+        data-sap-ui-preload="async"
+        data-sap-ui-resourceroots='{
+            "me.conmy.trends.app":"./"
+        }'>
     </script>
-    <script type="text/javascript">
-      jQuery(function() {
+    <script>
+        sap.ui.getCore().attachInit(function() {
+            sap.ui.require([
+                "sap/m/Shell",
+                "sap/ui/core/ComponentContainer"
+            ], function(Shell, ComponentContainer) {
 
-        var oModel = new sap.ui.model.json.JSONModel("http://localhost:8080/notes");
-
-        var oTable = new sap.m.Table({
-          columns: [
-            new sap.m.Column({ header: new sap.m.Label({text: "Date"})}),
-            new sap.m.Column({ header: new sap.m.Label({text: "Note"})})
-          ],
-          items: {
-            path: "/",
-            template: new sap.m.ColumnListItem({
-              cells: [
-                new sap.m.Text({text: {
-                  path: "NOTE_DATE",
-                  formatter: function(oVal) {
-                    var date = new Date(oVal);
-                    return date.getFullYear() + "-" + ("0"+date.getMonth()).slice(-2) + "-" + ("0"+date.getDate()).slice(-2);
-                  }
-                }}),
-                new sap.m.Text({text: "{NOTE}"})
-              ]
-            })
-          }
+                new Shell({
+                    app: new ComponentContainer({
+                        name: "me.conmy.trends.app",
+                        settings: {
+                            id: "nav"
+                        }
+                    })
+                }).placeAt("content");
+            });
         });
-
-        oTable.setModel(oModel);
-        oTable.placeAt('content');
-
-      });
     </script>
- 
+
   </head>
   <body class="sapUiBody">
     <div id="content"></div>

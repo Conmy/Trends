@@ -1,0 +1,42 @@
+<mvc:View
+	controllerName="me.conmy.trends.app.controller.notes"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true">
+
+	<App id="app">
+		<pages>
+			<Page>
+				<content>
+					<Table id="notes-table"
+						items="{
+							path: '/',
+							sorter: { path: 'NOTE_DATE', descending: true }
+						}">
+						<columns>
+							<Column>
+								<header>
+									<Label text="Date"></Label>
+								</header>
+							</Column>
+							<Column>
+								<header>
+									<Label text="Note"></Label>
+								</header>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{path:'NOTE_DATE', formatter:'.dateFormatter'}"></Text>
+									<Text text="{NOTE}"></Text>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<Button text="Hello" press=".refreshModel"></Button>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
