@@ -19,6 +19,13 @@ Tracking trends in daily life
 
 - You must have [node.js](https://nodejs.org) installed
 
+##### Note:
+You could install a docker mysql database using the following command:
+
+``` 
+	sudo docker run -d -p 3306:3306 -v /home/david/dev/source/db:/var/lib/mysql mysql --default-authentication-plugin=mysql_native_password
+```
+
 #### Steps
 - cd to the project root folder
 - run `npm install`
